@@ -23,12 +23,13 @@ export interface AnyObject {
 }
 
 export function parseFilter(filter: string) {
-  const { take, skip, where, loadRelationIds } = JSON.parse(filter);
+  const { take, skip, where, loadRelationIds, order } = JSON.parse(filter);
 
   const options: any = {
     take,
     skip,
     loadRelationIds: loadRelationIds === true,
+    order
   };
 
   // Ajouter le filtre where si présent

@@ -31,4 +31,6 @@ export class UserDto {
 
   @ApiProperty()
   readonly zipCode?: string;
+
+  createdBy?: number;
 }

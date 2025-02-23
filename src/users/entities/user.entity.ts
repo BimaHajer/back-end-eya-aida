@@ -59,7 +59,7 @@ export class User {
   active: boolean | false;
 
   @ApiProperty()
-  @Column('timestamp with time zone', { name: 'createdat', nullable: true })
+  @Column('timestamp with time zone', { name: 'createdAt', nullable: true })
   createdAt: Date | null;
 
   @ApiProperty()

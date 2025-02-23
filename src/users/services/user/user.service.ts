@@ -25,14 +25,14 @@ export class UserService {
     return await usersObjectsAndCount;
   }
 
-  async createUser(createUserDto: UserDto) {
+  async createUser(createUserDto: UserDto, idUser) {
     const bcrypt = require('bcrypt');
     const salt = 10;
     const saltRound = await bcrypt.genSalt(salt);
     const hash = await bcrypt.hash(createUserDto.password, saltRound);
     createUserDto.password = hash
     createUserDto.saltRounds = saltRound
-    // createUserDto.createdBy = idUser
+    createUserDto.createdBy = idUser
     const user = await this.userRepository.create(createUserDto);
     const { token, saltRounds, password, ...result } = await this.userRepository.save(user)
       .catch((e) => {
@@ -46,7 +46,7 @@ export class UserService {
     return result
   }
 
-  async replaceById(id: any, updateUserDto: UserDto) {
+  async replaceById(id: any, updateUserDto: UserDto, idUser) {
     const user = await this.userRepository.findOne({where: {id: +id}})
     if (!user) {
       throw new NotFoundException(`User #${id} not found !`);
@@ -64,7 +64,8 @@ export class UserService {
     const userPreload:any = await this.userRepository.preload({
       id: +id,
       ...updateUserDto,
-      // updatedBy: idUser,
+      updatedBy: idUser,
+      updatedAt: new Date()
     });
     const { token, saltRounds, password, ...result } = await this.userRepository.save(userPreload).catch((e) => {
       if (/(email)[\s\S]+(already exists)/.test(e.detail)) {
