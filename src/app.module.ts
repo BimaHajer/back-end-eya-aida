@@ -6,6 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { CategoryModule } from './category/category.module';
+import { ProvidersModule } from './providers/providers.module';
+import { TvaModule } from './tva/tva.module';
 
 @Module({
   imports: [
@@ -24,6 +27,9 @@ import { SharedModule } from './shared/shared.module';
     UsersModule,
     AuthModule,
     SharedModule,
+    CategoryModule,
+    ProvidersModule, 
+    TvaModule
   ],
   controllers: [AppController],
   providers: [AppService],
