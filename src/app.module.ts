@@ -9,6 +9,9 @@ import { SharedModule } from './shared/shared.module';
 import { CategoryModule } from './category/category.module';
 import { ProvidersModule } from './providers/providers.module';
 import { TvaModule } from './tva/tva.module';
+import { ClientsModule } from './clients/clients.module';
+import { ModelesModule } from './modeles/modeles.module';
+import { BrandsModule } from './brands/brands.module';
 
 @Module({
   imports: [
@@ -22,14 +25,17 @@ import { TvaModule } from './tva/tva.module';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false, // À utiliser uniquement en développement
+      synchronize: false , // À utiliser uniquement en développement
     }),
     UsersModule,
     AuthModule,
     SharedModule,
     CategoryModule,
     ProvidersModule, 
-    TvaModule
+    TvaModule,
+    ClientsModule,
+    ModelesModule,
+    BrandsModule
   ],
   controllers: [AppController],
   providers: [AppService],
