@@ -12,6 +12,7 @@ import { TvaModule } from './tva/tva.module';
 import { ClientsModule } from './clients/clients.module';
 import { ModelesModule } from './modeles/modeles.module';
 import { BrandsModule } from './brands/brands.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -35,7 +36,8 @@ import { BrandsModule } from './brands/brands.module';
     TvaModule,
     ClientsModule,
     ModelesModule,
-    BrandsModule
+    BrandsModule,
+    ProductModule
   ],
   controllers: [AppController],
   providers: [AppService],
