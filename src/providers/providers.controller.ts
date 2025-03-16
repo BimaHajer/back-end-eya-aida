@@ -12,16 +12,12 @@ export class ProvidersController {
       @ApiBearerAuth()
       @ApiQuery({ name: 'filter', type: 'object', schema: { $ref: getSchemaPath(FilterDto) } })
       find(@Query('filter') filter?: FilterDto<ProvidersDto>): Promise<[ProvidersDto[], number]> {
-      console.log("filter",filter)
         return this.providersService.findProviders(filter);
       }
     
       @Post('/')
       @ApiBearerAuth()
       async createProviders(@Body() providersDto: ProvidersDto) {
-        console.log(" provider",providersDto
-
-        )
         return this.providersService.createProviders(providersDto);
       }
       

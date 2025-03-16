@@ -27,7 +27,6 @@ export class BrandsService {
 
 
 async replaceById(id: any, updateBrandDto: BrandDto) {
-  console.log('Mise à jour de la marque avec ID:', id); 
   const brand = await this.brandRepository.findOne({ where: { id: +id } });
   if (!brand) {
     throw new NotFoundException(`Brand #${id} not found!`);
@@ -37,7 +36,6 @@ async replaceById(id: any, updateBrandDto: BrandDto) {
     id: +id,
     ...updateBrandDto,
   });
-  console.log('Marque pré-chargée avant la sauvegarde:', brandPreload); 
   return this.brandRepository.save(brandPreload);
 }
 

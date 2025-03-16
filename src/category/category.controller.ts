@@ -13,16 +13,13 @@ export class CategoryController {
           @ApiBearerAuth()
           @ApiQuery({ name: 'filter', type: 'object', schema: { $ref: getSchemaPath(FilterDto) } })
           find(@Query('filter') filter?: FilterDto<CategoryDto>): Promise<[CategoryDto[], number]> {
-          console.log("filter",filter)
             return this.categoryService.findCategory(filter);
           }
         
           @Post('/')
           @ApiBearerAuth()
           async createCategory(@Body() categoryDto: CategoryDto) {
-            console.log(" category",CategoryDto
-    
-            )
+           
             return this.categoryService.createCategory(categoryDto);
           }
           

@@ -35,8 +35,6 @@ export class CategoryService {
   }
 
   async replaceById(id: number, updateCategoryDto: UpdateCategoryDto) {
-    console.log("id?",id,updateCategoryDto)
-  console.log("hello",id)
 let category= await this.CategoryRepository.preload({
   id:+id,
   ...updateCategoryDto
