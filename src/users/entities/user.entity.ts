@@ -1,10 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger/dist/decorators';
+import { Role } from 'src/role/entities/role.entity';
 import {
   BeforeInsert,
   BeforeRemove,
   BeforeUpdate,
   Column,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -59,6 +62,11 @@ export class User {
   active: boolean | false;
 
   @ApiProperty()
+  @ManyToOne(() => Role, (role: Role) => role.users )
+  @JoinColumn({name :"roleId"})
+  roleId: Role | null;
+
+  @ApiProperty()
   @Column('timestamp with time zone', { name: 'createdAt', nullable: true })
   createdAt: Date | null;
 
@@ -77,7 +85,7 @@ export class User {
   @ApiProperty()
   @Column('timestamp with time zone', { name: 'deletedAt', nullable: true })
   deletedAt: Date | null;
-
+  
   @BeforeInsert()
   eventCreatedAt() {
     this.createdAt = new Date();

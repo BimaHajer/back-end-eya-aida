@@ -14,6 +14,8 @@ export class UserDto {
 
   @ApiProperty()
   readonly phone?: string;
+  @ApiProperty()
+  roleId :any;
 
   @ApiProperty()
   password?: string;
