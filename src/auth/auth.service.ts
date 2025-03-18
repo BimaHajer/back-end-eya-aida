@@ -38,6 +38,7 @@ export class AuthService {
       };
       const expiresIn =  user.rememberMe == true  ? 24*60*60 :	2*60*60
 
+      console.log(" dqtq",userCurio)
       return {
         idUser: idUser,
         access_token: this.jwtService.sign(payload, {
@@ -47,6 +48,8 @@ export class AuthService {
         expiresIn: expiresIn,
         firstName: userCurio.firstName,
         lastName: userCurio.lastName,
+        role: userCurio.roleId?.name,
+      
       };
     } else {
       throw new NotFoundException(`Email et/ou mot de passe sont incorrects`);

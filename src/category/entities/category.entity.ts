@@ -17,10 +17,6 @@ export class Category{
   description : string | null;
 
   @ApiProperty()
-  @Column("boolean", { name: "status", nullable: true, default: true })
-  status: boolean | false;
-
-  @ApiProperty()
   @Column("timestamp with time zone", { name: "createdAt", nullable: true })
   createdAt: Date | null;
 

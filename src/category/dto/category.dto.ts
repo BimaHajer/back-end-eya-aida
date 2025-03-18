@@ -2,7 +2,6 @@ export class CategoryDto {
     id:number;
     name: string | null;
     description : string | null;
-    status: boolean | false;
     createdAt: Date | null;
     createdBy: number | null;
     updatedAt: Date | null;

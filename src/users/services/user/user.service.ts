@@ -14,6 +14,7 @@ export class UserService {
   async findUsers(filter: any): Promise<[UserDto[], number]> {
     const options = parseFilter(filter);
 
+
     const usersObjectsAndCount: any = await this.userRepository.findAndCount(options);
     const userObjects: UserDto[] = [];
     const users = usersObjectsAndCount[0];
@@ -92,7 +93,7 @@ export class UserService {
   }
 
   async findOne(email: string): Promise<any> {
-    return await this.userRepository.findOne({ where: { email: ILike(email) } });
+    return await this.userRepository.findOne({ where: { email: ILike(email) } ,relations:["roleId"] });
   }
 
   async removeMultiple(toDelete: number[], toDisable: number[], idUser?: number) {
