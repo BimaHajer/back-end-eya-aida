@@ -13,6 +13,7 @@ import { ClientsModule } from './clients/clients.module';
 import { ModelesModule } from './modeles/modeles.module';
 import { BrandsModule } from './brands/brands.module';
 import { ProductModule } from './product/product.module';
+import { RoleModule } from './role/role.module';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { ProductModule } from './product/product.module';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false , // À utiliser uniquement en développement
+      synchronize:false
     }),
     UsersModule,
     AuthModule,
@@ -37,7 +38,7 @@ import { ProductModule } from './product/product.module';
     ClientsModule,
     ModelesModule,
     BrandsModule,
-    ProductModule
+    ProductModule,RoleModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -2,7 +2,7 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { parseFilter } from 'src/filter.dto';
-import { ILike, Repository } from 'typeorm';
+import {  Repository } from 'typeorm';
 import { Category } from './entities/category.entity';
 import { CategoryDto } from './dto/category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
