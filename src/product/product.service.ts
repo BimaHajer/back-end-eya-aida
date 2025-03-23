@@ -89,7 +89,7 @@ export class ProductService {
 
     async findById(id: number): Promise<Product> { 
 
-        const product = await this.productRepository.findOne({ where: { id } ,relations: ['categoryId','modelId','modelId.brandId']}); 
+        const product = await this.productRepository.findOne({ where: { id } ,relations: ['categoryId','modelId','modelId.brandId','images']}); 
         
 
         if (!product) { 
