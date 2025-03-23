@@ -14,6 +14,7 @@ import { ModelesModule } from './modeles/modeles.module';
 import { BrandsModule } from './brands/brands.module';
 import { ProductModule } from './product/product.module';
 import { RoleModule } from './role/role.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -27,18 +28,20 @@ import { RoleModule } from './role/role.module';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize:false
+      synchronize: false, // À utiliser uniquement en développement
     }),
     UsersModule,
     AuthModule,
     SharedModule,
     CategoryModule,
-    ProvidersModule, 
+    ProvidersModule,
     TvaModule,
     ClientsModule,
     ModelesModule,
     BrandsModule,
-    ProductModule,RoleModule
+    ProductModule,
+    RoleModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
