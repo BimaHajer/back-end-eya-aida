@@ -15,6 +15,7 @@ import { BrandsModule } from './brands/brands.module';
 import { ProductModule } from './product/product.module';
 import { RoleModule } from './role/role.module';
 import { ImageModule } from './image/image.module';
+import { PaimentsModule } from './paiments/paiments.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { ImageModule } from './image/image.module';
     ProductModule,
     RoleModule,
     ImageModule,
+    PaimentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
