@@ -1,32 +1,23 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Brand } from "src/brands/entity/brand.entity";
-import { BeforeInsert, BeforeRemove, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, BeforeRemove, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("Modeles")
-export class Model {
+@Entity("payments")
+export class Paiment {
     @ApiProperty()
     @PrimaryGeneratedColumn({ name: 'id' })
     id: number;
   
     @ApiProperty()
-    @Column('text', { name: 'name', nullable: true })
-    name: string | null;
-  
-
-    @ApiProperty()
-    @Column('text', { name: 'picture', nullable: true })
-    picture: string | null;
+    @Column('text', { name: 'modePayment', nullable: true })
+    modePayment: string | null;
 
     @Column('text', { name: 'description', nullable: true })
     description: string | null;
-    
-
-
+  
     @ApiProperty()
     @Column('boolean', { name: 'active', nullable: true, default: true })
-    active: boolean | false;
-  
-   
+    active: boolean | false;  
+
     @ApiProperty()
     @Column('timestamp with time zone', { name: 'createdAt', nullable: true })
     createdAt: Date | null;
@@ -46,12 +37,6 @@ export class Model {
     @ApiProperty()
     @Column('timestamp with time zone', { name: 'deletedAt', nullable: true })
     deletedAt: Date | null;
-
-
-    @ApiProperty()
-    @ManyToOne(() => Brand, (brand: Brand) => brand.id)
-    @JoinColumn({ name: "brandId" })
-    brandId: number | null;
   
     @BeforeInsert()
     eventCreatedAt() {

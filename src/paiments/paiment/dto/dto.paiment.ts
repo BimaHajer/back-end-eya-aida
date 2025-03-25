@@ -1,15 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger/dist/decorators';
 
-export class ModeleDto {
+export class PaimentDto {
     
   @ApiProperty()
-  readonly name?: string;
+  readonly modPayment?: string;
 
   @ApiProperty()
   description?: string;
 
   @ApiProperty()
   readonly active?: boolean;
-  brandId: any;
+
   createdBy?: number;
 }
