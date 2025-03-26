@@ -16,6 +16,7 @@ import { ProductModule } from './product/product.module';
 import { RoleModule } from './role/role.module';
 import { ImageModule } from './image/image.module';
 import { PaimentsModule } from './paiments/paiments.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { PaimentsModule } from './paiments/paiments.module';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false, // À utiliser uniquement en développement
+      synchronize: true, // À utiliser uniquement en développement
     }),
     UsersModule,
     AuthModule,
@@ -44,6 +45,7 @@ import { PaimentsModule } from './paiments/paiments.module';
     RoleModule,
     ImageModule,
     PaimentsModule,
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
